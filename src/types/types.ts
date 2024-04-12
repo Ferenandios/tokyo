@@ -3,3 +3,9 @@ export interface IInput {
   title: string;
   placeholder: string;
 }
+
+export interface IData {
+  name: string;
+  phone: string;
+  email: string;
+}

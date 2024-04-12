@@ -10,7 +10,7 @@ const Inputs: FC = (): JSX.Element => {
   ];
   return (
     <>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center gap-[8px]">
         {inputList.map((input) => (
           <Input key={input.id} input={input} />
         ))}

@@ -1,0 +1,7 @@
+.ansoc {
+  @apply flex justify-center;
+}
+
+.image {
+  @apply w-[176px] h-[176px];
+}

@@ -1,0 +1,11 @@
+.inner {
+  @apply flex flex-col w-full h-[60px];
+}
+
+.title {
+  @apply font-bold ml-[16px];
+}
+
+.input {
+  @apply w-full h-full border-2 rounded-full px-[16px];
+}

@@ -1,10 +1,11 @@
 import { FC } from "react";
+import styles from "./Image.module.css";
 
 const Image: FC = (): JSX.Element => {
   return (
     <>
-      <div className="flex justify-center">
-        <img className="w-[176px] h-[176px]" src="/ersh.jpg" alt="App Icon" />
+      <div className={styles.ansoc}>
+        <img className={styles.image} src="/ersh.jpg" alt="App Icon" />
       </div>
     </>
   );

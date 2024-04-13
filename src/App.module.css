@@ -1,0 +1,7 @@
+.app {
+  @apply flex justify-center items-center w-screen h-screen
+}
+
+.inner {
+  @apply flex flex-col w-[500px] min-h-[250px] border-4 rounded-[30px] p-[16px] gap-[20px]
+}

@@ -1,16 +1,17 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
+import { Context } from "../../App";
+import styles from "./Button.module.css";
 
 const Button: FC = (): JSX.Element => {
+  const data = useContext(Context);
   const handleClick = () => {
-    alert("Данные отправлены!");
+    console.log(data.data);
+    alert("Результат выведен в консоль");
   };
   return (
     <>
       <div>
-        <button
-          onMouseUp={handleClick}
-          className="w-full h-[50px] bg-[#E5E7EB] bg-opacity-40 border-2 border-[#E5E7EB] rounded-full"
-        >
+        <button className={styles.button} onClick={handleClick}>
           Отправить данные
         </button>
       </div>

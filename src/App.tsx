@@ -1,35 +1,33 @@
-import { FC, useState } from "react";
+import { createContext, FC, useState } from "react";
+import Button from "./components/Button/Button";
 import Image from "./components/Image/Image";
 import Inputs from "./components/Inputs/Inputs";
-import Button from "./components/Button/Button";
-import { Context } from "./context/DataContext";
-import { IData } from "./types/types";
+import { type IState } from "./types/types";
+
+export const Context = createContext<IState>({
+  data: { name: "", phone: "", email: "" },
+  setData: () => {},
+});
 
 const App: FC = (): JSX.Element => {
-  const [data, setData] = useState<IData>({
-    name: "",
-    phone: "",
-    email: "",
-    // ! COMPLETE CONTEXT TYPES FOR A FUNCTION
-    // ! COMPLETE CONTEXT TYPES FOR A FUNCTION
-    // ! COMPLETE CONTEXT TYPES FOR A FUNCTION
-    // ! COMPLETE CONTEXT TYPES FOR A FUNCTION
-    // ! COMPLETE CONTEXT TYPES FOR A FUNCTION
-    // ? https://www.youtube.com/watch?v=05ZM4ymK9Nc
+  const [state, setState] = useState<IState>({
+    data: { name: "", phone: "", email: "" },
+    setData: (payload) => {
+      setState((prevState) => ({
+        data: { ...prevState.data, [payload.type]: payload.value },
+        setData: prevState.setData,
+      }));
+    },
   });
   return (
     <>
-      <Context.Provider value={setData}>
+      <Context.Provider value={state}>
         <section className="flex justify-center items-center w-screen h-screen">
-          <form
-            className="flex flex-col w-[500px] min-h-[250px] border-4 rounded-[30px] p-[16px] gap-[20px]"
-            name="mailTo"
-            method="post"
-          >
+          <div className="flex flex-col w-[500px] min-h-[250px] border-4 rounded-[30px] p-[16px] gap-[20px]">
             <Image />
             <Inputs />
             <Button />
-          </form>
+          </div>
         </section>
       </Context.Provider>
     </>
